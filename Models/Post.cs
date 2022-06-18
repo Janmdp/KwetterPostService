@@ -12,6 +12,7 @@ namespace Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
         public int AuthorId { get; set; }
+        public string AuthorName { get; set; }
         [Column(TypeName = "nvarchar(500)")]
         public string Content { get; set; }
         public int CommentCount { get; set; }

@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace KwetterPostService.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    [Route("api/[controller]")]
     public class PostController : ControllerBase
     {
         private readonly PostLogic logic;
@@ -26,6 +26,15 @@ namespace KwetterPostService.Controllers
         [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         public async Task<IActionResult> CreatePost([FromBody]Post post)
         {
+            var userId = User
+                .Claims
+                .SingleOrDefault();
+
+            if (userId == null)
+                return Unauthorized("No valid user was supplied");
+
+            post.AuthorId = Convert.ToInt32(userId.Value);
+            post.CreatedAt = DateTime.Now;
             //todo: Post id here?
             logic.CreatePost(post);
             return Ok("Post created");
