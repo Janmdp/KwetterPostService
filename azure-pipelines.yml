@@ -13,7 +13,7 @@ variables:
   dockerRegistryServiceConnection: 'f3aded71-b6fd-453a-9eb2-acff0f384cbb'
   imageRepository: 'janmdpkwetterpostservice'
   containerRegistry: 'kwetterregister.azurecr.io'
-  dockerfilePath: '$(Build.SourcesDirectory)/KwetterPostService/Dockerfile'
+  dockerfilePath: '$(Build.SourcesDirectory)Dockerfile'
   tag: '$(Build.BuildId)'
 
   # Agent VM image name
