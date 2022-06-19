@@ -44,3 +44,4 @@ ENTRYPOINT ["dotnet", "KwetterPostService.dll"]
 #WORKDIR /app
 #COPY --from=build-env /app/out .
 #ENTRYPOINT ["dotnet", "KwetterPostService.dll"]
+#ENTRYPOINT ["dotnet", "KwetterPostService.dll"]
